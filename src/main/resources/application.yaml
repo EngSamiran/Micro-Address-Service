@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: address-service
+  datasource:
+    password: password
+    username: password
+    url: jdbc:oracle:thin:@//localhost or ip address with db port number/da name
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: '2'
+    
+  jpa:
+    show-sql: 'true'
+    hibernate:
+      ddl-auto: update
+    open-in-view: 'false'
+    
+eureka:
+  instance:
+    metadata-map:
+      contextRoot: /address-service/api
+      userName: Samiran
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+      
+server:
+  servlet:
+    context-path: /address-app/api
+  port: '8082'
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  
